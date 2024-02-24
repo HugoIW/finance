@@ -1,39 +1,35 @@
 class PasswordPatternUtils {
-    constructor({ value }) {
-        this.value = value;
-    }
-
-    oneLowerCaseLetter() {
+    static oneLowerCaseLetter(value) {
         const pattern = /[a-z]{1,}/g;
-        return pattern.test(this.value);
+        return pattern.test(value);
     }
 
-    oneUpperCaseLetter() {
+    static oneUpperCaseLetter(value) {
         const pattern = /[A-Z]{1,}/g;
-        return pattern.test(this.value);
+        return pattern.test(value);
     }
 
-    oneDigit() {
+    static oneDigit(value) {
         const pattern = /[0-9]{1,}/g;
-        return pattern.test(this.value);
+        return pattern.test(value);
     }
 
-    oneSpecialCharacter() {
+    static oneSpecialCharacter(value) {
         const pattern = /[!*.~"'&%#@\$\}\{\]\[\?]{1,}/g;
-        return pattern.test(this.value);
+        return pattern.test(value);
     }
 
-    minCharacter() {
-        return this.value.length > 7;
+    static minCharacter(value) {
+        return value.length > 7;
     }
 
-    getPasswordPatternValid() {
+    static getPasswordPatternValid(value) {
         if (
-            this.oneLowerCaseLetter(this.value) &&
-            this.oneUpperCaseLetter(this.value) &&
-            this.oneDigit(this.value) &&
-            this.oneSpecialCharacter(this.value) &&
-            this.minCharacter(this.value)
+            this.oneLowerCaseLetter(value) &&
+            this.oneUpperCaseLetter(value) &&
+            this.oneDigit(value) &&
+            this.oneSpecialCharacter(value) &&
+            this.minCharacter(value)
         ) {
             return true;
         }
