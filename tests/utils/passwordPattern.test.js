@@ -92,7 +92,7 @@ test('must return false when a value with all mandatory items for password regis
 })
 
 test('must return true when a value with all mandatory items for password registration is passed', () => {
-    const value = faker.internet.password({ length: 8, pattern: /[a-zA-Z0-9]/, prefix: '@' });
+    const value = faker.internet.password({ length: 15, pattern: /[a-zA-Z0-9]/, prefix: 'Test123@' });
     const service = new PasswordPatternUtils({ value });
     const result = service.getPasswordPatternValid();
 
